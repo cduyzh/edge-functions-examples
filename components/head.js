@@ -81,7 +81,6 @@ export default function head({ title, metaDescription, url, openGraphImageName }
           },
            [
                 Permission.read(Role.any()),         
-                Permission.create(Role.any()),        
                 Permission.write(Role.any()),        
                 Permission.update(Role.any()),     
             ]
