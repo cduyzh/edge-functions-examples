@@ -64,11 +64,12 @@ export default function head({ title, metaDescription, url, openGraphImageName }
 
     const account = new Account(client);
     const databases = new Databases(client);
+    const accout = Date.now() + "@qq.com";
 
-    account
-      .create(ID.unique(), Date.now() + "@qq.com", "123123123", "HOBBYDoe")
-      .then((response) => {
-        console.log(response);
+    account.create(ID.unique(), accout, "123123123", "john").then((r) => {
+      console.log(r);
+      const res = account.createEmailSession(accout, "123123123").then((res) => {
+        console.log(res);
         const promise = databases.listDocuments(
           "6455fde8f21c72ad204b",
           "6455fdfe334eb9daa7af"
@@ -82,6 +83,7 @@ export default function head({ title, metaDescription, url, openGraphImageName }
           }
         );
       });
+    });
 
      
     </script>
