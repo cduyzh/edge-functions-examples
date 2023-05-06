@@ -71,29 +71,15 @@ export default function head({ title, metaDescription, url, openGraphImageName }
           '123123123',
           'HOBBYDoe'
       ).then(response => {
-          console.log(response);
-           const promise = databases.createDocument(
-          '6455fde8f21c72ad204b',
-          '6455fdfe334eb9daa7af',
-          '645604c0be242c23286a',
-          {
-           title: "hobby"
-          },
-           [
-                Permission.read(Role.any()),         
-                Permission.write(Role.any()),        
-                Permission.update(Role.any()),     
-            ]
-      );
+        console.log(response);
+        const promise = databases.listDocuments('6455fde8f21c72ad204b', '6455fdfe334eb9daa7af');
+        promise.then(function (response) {
+            console.log(response); // Success
+        }, function (error) {
+            console.log(error); // Failure
+        });
+      }
 
-      promise.then(function (response) {
-          console.log(response);
-      }, function (error) {
-          console.log(error);
-      });
-      }, error => {
-          console.log(error);
-      });
 
      
     </script>
