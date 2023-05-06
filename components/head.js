@@ -55,7 +55,7 @@ export default function head({ title, metaDescription, url, openGraphImageName }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/appwrite@10.1.0"></script>
     <script>
- const { Client, Databases, Account, ID, Permission, Role } = Appwrite;
+const { Client, Databases, Account, ID, Permission, Role } = Appwrite;
 const client = new Client();
 
 client
@@ -66,14 +66,24 @@ const account = new Account(client);
 const databases = new Databases(client);
 const accout = Date.now() + "@qq.com";
 
-const promise = databases.listDocuments('6455fde8f21c72ad204b', '6455fdfe334eb9daa7af');
+account.create(ID.unique(), accout, "123123123", "john").then((r) => {
+  console.log(r);
+  account.createEmailSession(accout, "123123123").then(() => {
+    const promise = databases.listDocuments(
+      "6455fde8f21c72ad204b",
+      "6455fdfe334eb9daa7af"
+    );
 
-promise.then(function (response) {
-    console.log(response); // Success
-}, function (error) {
-    console.log(error); // Failure
+    promise.then(
+      function (response) {
+        console.log(response); // Success
+      },
+      function (error) {
+        console.log(error); // Failure
+      }
+    );
+  });
 });
-
 
      
     </script>
