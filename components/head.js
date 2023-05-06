@@ -67,9 +67,9 @@ export default function head({ title, metaDescription, url, openGraphImageName }
 
       account.create(
           ID.unique(),
-          'ASDAASD@QQ.com',
+          Date.now() + "@qq.com",
           '123123123',
-          'Jane Doe'
+          'HOBBYDoe'
       ).then(response => {
           console.log(response);
            const promise = databases.createDocument(
