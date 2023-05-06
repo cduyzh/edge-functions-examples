@@ -55,7 +55,7 @@ export default function head({ title, metaDescription, url, openGraphImageName }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/appwrite@10.1.0"></script>
     <script>
-      const { Client, Databases, Account, ID } = Appwrite;
+      const { Client, Databases, Account, ID, Permission, Role} = Appwrite;
       const client = new Client();
       
       client
@@ -78,7 +78,13 @@ export default function head({ title, metaDescription, url, openGraphImageName }
           '645604c0be242c23286a',
           {
            title: "hobby"
-          }
+          },
+           [
+                Permission.read(Role.any()),         
+                Permission.create(Role.any()),        
+                Permission.write(Role.any()),        
+                Permission.update(Role.any()),     
+            ]
       );
 
       promise.then(function (response) {
