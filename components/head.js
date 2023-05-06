@@ -67,7 +67,7 @@ export default function head({ title, metaDescription, url, openGraphImageName }
       const promise = databases.createDocument(
           '6455fde8f21c72ad204b',
           '6455fdfe334eb9daa7af',
-          ID.unique(),
+          '645604c0be242c23286a',
           {
            title: "hobby"
           }
