@@ -55,14 +55,26 @@ export default function head({ title, metaDescription, url, openGraphImageName }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/appwrite@10.1.0"></script>
     <script>
-      const { Client, Databases, ID  } = Appwrite;
+      const { Client, Databases, Account, ID } = Appwrite;
       const client = new Client();
-
+      
       client
           .setEndpoint('https://cloud.appwrite.io/v1')
           .setProject('6455f0e0eb069138e169');
           
+      const account = new Account(client);
       const databases = new Databases(client);
+
+      account.create(
+          ID.unique(),
+          'me@example.com',
+          'password',
+          'Jane Doe'
+      ).then(response => {
+          console.log(response);
+      }, error => {
+          console.log(error);
+      });
 
       const promise = databases.createDocument(
           '6455fde8f21c72ad204b',
