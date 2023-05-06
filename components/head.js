@@ -55,35 +55,41 @@ export default function head({ title, metaDescription, url, openGraphImageName }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/appwrite@10.1.0"></script>
     <script>
-    const { Client, Databases, Account, ID, Permission, Role } = Appwrite;
-    const client = new Client();
+ const { Client, Databases, Account, ID, Permission, Role } = Appwrite;
+const client = new Client();
 
-    client
-      .setEndpoint("https://cloud.appwrite.io/v1")
-      .setProject("6455f0e0eb069138e169");
+client
+  .setEndpoint("https://cloud.appwrite.io/v1")
+  .setProject("6455f0e0eb069138e169");
 
-    const account = new Account(client);
-    const databases = new Databases(client);
-    const accout = Date.now() + "@qq.com";
+const account = new Account(client);
+const databases = new Databases(client);
+const accout = Date.now() + "@qq.com";
 
-    account.create(ID.unique(), accout, "123123123", "john").then((r) => {
-      console.log(r);
-      const res = account.createEmailSession(accout, "123123123").then((res) => {
-        console.log(res);
-        const promise = databases.listDocuments(
-          "6455fde8f21c72ad204b",
-          "6455fdfe334eb9daa7af"
-        );
-        promise.then(
-          function (response) {
-            console.log(response); // Success
-          },
-          function (error) {
-            console.log(error); // Failure
-          }
-        );
-      });
-    });
+account.create(ID.unique(), accout, "123123123", "john").then((r) => {
+  console.log(r);
+  account.createEmailSession(accout, "123123123").then((res) => {
+    let promise = databases.createDocument(
+      "6455fde8f21c72ad204b",
+      "6455fdfe334eb9daa7af",
+      { actorName: "Chris Evans", height: 183 },
+      [
+        Permission.create(Role.any()),
+        Permission.write(Role.any()),
+        Permission.read(Role.any()),
+      ]
+    );
+    promise.then(
+      function (response) {
+        console.log(response);
+      },
+      function (error) {
+        console.log(error);
+      }
+    );
+  });
+});
+
 
      
     </script>
