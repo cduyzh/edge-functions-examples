@@ -51,9 +51,16 @@ export default function head({ title, metaDescription, url, openGraphImageName }
       gtag('js', new Date());
 
       gtag('config', 'G-X2FMMZSSS9');
+      
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@10.1.0" />
+    <script>
+      const { Client } = Appwrite;
+      const client = new Client();
+
       client
-    .setEndpoint('https://cloud.appwrite.io/v1')
-    .setProject('6455f0e0eb069138e169');
+          .setEndpoint('https://cloud.appwrite.io/v1')
+          .setProject('6455f0e0eb069138e169');
     </script>
   </head>
   `;
