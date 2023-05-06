@@ -62,14 +62,14 @@ export default function head({ title, metaDescription, url, openGraphImageName }
           .setEndpoint('https://cloud.appwrite.io/v1')
           .setProject('6455f0e0eb069138e169');
           
-          const databases = new Databases(client);
+      const databases = new Databases(client);
 
       const promise = databases.createDocument(
           '6455fde8f21c72ad204b',
           '6455fdfe334eb9daa7af',
           ID.unique(),
           {
-            title: Date.now()
+           
           }
       );
 
