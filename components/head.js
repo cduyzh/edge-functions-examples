@@ -53,7 +53,7 @@ export default function head({ title, metaDescription, url, openGraphImageName }
       gtag('config', 'G-X2FMMZSSS9');
       
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/appwrite@10.1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@10.1.0"></script>
     <script>
       const { Client, Databases, ID  } = Appwrite;
       const client = new Client();
