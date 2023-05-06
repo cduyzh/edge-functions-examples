@@ -69,7 +69,7 @@ export default function head({ title, metaDescription, url, openGraphImageName }
           '6455fdfe334eb9daa7af',
           ID.unique(),
           {
-           
+           title: "hobby"
           }
       );
 
