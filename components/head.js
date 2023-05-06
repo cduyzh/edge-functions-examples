@@ -66,28 +66,12 @@ const account = new Account(client);
 const databases = new Databases(client);
 const accout = Date.now() + "@qq.com";
 
-account.create(ID.unique(), accout, "123123123", "john").then((r) => {
-  console.log(r);
-  account.createEmailSession(accout, "123123123").then((res) => {
-    let promise = databases.createDocument(
-      "6455fde8f21c72ad204b",
-      "6455fdfe334eb9daa7af",
-      { actorName: "Chris Evans", height: 183 },
-      [
-        Permission.create(Role.any()),
-        Permission.write(Role.any()),
-        Permission.read(Role.any()),
-      ]
-    );
-    promise.then(
-      function (response) {
-        console.log(response);
-      },
-      function (error) {
-        console.log(error);
-      }
-    );
-  });
+const promise = databases.listDocuments('6455fde8f21c72ad204b', '6455fdfe334eb9daa7af');
+
+promise.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
 });
 
 
