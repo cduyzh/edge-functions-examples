@@ -66,9 +66,7 @@ const account = new Account(client);
 const databases = new Databases(client);
 const accout = Date.now() + "@qq.com";
 
-account.create(ID.unique(), accout, "123123123", "john").then((r) => {
-  console.log(r);
-  account.createEmailSession(accout, "123123123").then(() => {
+  account.get().then(() => {
     const promise = databases.listDocuments(
       "6455fde8f21c72ad204b",
       "6455fdfe334eb9daa7af"
@@ -83,7 +81,6 @@ account.create(ID.unique(), accout, "123123123", "john").then((r) => {
       }
     );
   });
-});
 
      
     </script>
