@@ -67,16 +67,12 @@ export default function head({ title, metaDescription, url, openGraphImageName }
 
       account.create(
           ID.unique(),
-          'me@example.com',
-          'password',
+          'ASDAASD@QQ.com',
+          '123123123',
           'Jane Doe'
       ).then(response => {
           console.log(response);
-      }, error => {
-          console.log(error);
-      });
-
-      const promise = databases.createDocument(
+           const promise = databases.createDocument(
           '6455fde8f21c72ad204b',
           '6455fdfe334eb9daa7af',
           '645604c0be242c23286a',
@@ -90,6 +86,11 @@ export default function head({ title, metaDescription, url, openGraphImageName }
       }, function (error) {
           console.log(error);
       });
+      }, error => {
+          console.log(error);
+      });
+
+     
     </script>
   </head>
   `;
